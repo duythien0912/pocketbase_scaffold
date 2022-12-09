@@ -73,7 +73,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
           id: result.record?.id,
           username: result.record?.data['username'],
           name: result.record?.data['name'],
-          isAdmin: result.record?.data['admin'],
+          isAdmin: result.record?.data['admin'] ?? false,
         );
         authStore.save(result.token, result.record);
         await authLocalStorage.saveAuthRecord(result);
