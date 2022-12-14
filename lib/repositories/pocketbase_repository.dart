@@ -65,7 +65,7 @@ abstract class PocketbaseRepository<T extends BaseModel>
         .map((rm) => JsonConverter.toBaseModelJson(rm, relations: relations));
   }
 
-  Future<AsyncValue<RecordModel>> create(T model, { List<http.MultipartFile> files }) async {
+  Future<AsyncValue<RecordModel>> create(T model, { List<http.MultipartFile> files = const [] }) async {
     /// Returns an error string, null for success
     ///
     // final state = await AsyncValue.guard(() => {
