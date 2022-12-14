@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pocketbase/pocketbase.dart';
+import "package:http/http.dart" as http;
 
 import '../models/pocketbase_model.dart';
 import '../provider/pocketbase_provider.dart';
