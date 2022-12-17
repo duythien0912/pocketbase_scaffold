@@ -61,14 +61,13 @@ abstract class PocketbaseRepository<T extends BaseModel>
 
   Future<Iterable> getAsMap({
     int batch = 200,
-    String? expandParam,
     String? filter,
     String? sort,
     Map<String, dynamic> query = const {},
     Map<String, String> headers = const {},
   }) async {
     final data = await recordService.getFullList(
-      expand: relations?.join(",") + (expandParam ?? ''),
+      expand: relations?.join(","),
       perPage: batch,
       filter: filter,
       sort: sort,
