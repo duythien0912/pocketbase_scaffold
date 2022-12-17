@@ -68,7 +68,6 @@ abstract class PocketbaseRepository<T extends BaseModel>
   }) async {
     final data = await recordService.getFullList(
       expand: relations?.join(","),
-      perPage: batch,
       filter: filter,
       sort: sort,
       query: query,
