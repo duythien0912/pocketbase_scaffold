@@ -101,11 +101,12 @@ abstract class PocketbaseRepository<T extends BaseModel>
     }
   }
 
-  Future<AsyncValue<RecordModel>> update(T model) async {
+  Future<AsyncValue<RecordModel>> update(T model, { List<http.MultipartFile> files = const [] }) async {
     try {
       final rm = await recordService.update(
         model.id!,
         body: JsonConverter.toRecordModelJson(model, relations: relations),
+        files: files,
       );
       getAll(loading: false);
       return AsyncData<RecordModel>(rm);
