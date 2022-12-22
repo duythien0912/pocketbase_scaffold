@@ -13,6 +13,7 @@ class JsonConverter {
     List<String>? relations,
   }) {
     var json = model.toJson();
+    json.removeWhere((key, value) => key == null || value == null);
     for (final relation in relations ?? []) {
       final relKey = json[relation];
       if (relKey is BaseModel) {
@@ -33,6 +34,7 @@ class JsonConverter {
     List<String>? relations,
   }) {
     var json = model.toJson();
+    json.removeWhere((key, value) => key == null || value == null);
     if (json.containsKey("expand") && (json['expand'] as Map).isNotEmpty) {
       (json['expand'] as Map).forEach((field, data) => json[field] = data);
       json.remove("expand");
